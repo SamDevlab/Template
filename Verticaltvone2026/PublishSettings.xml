@@ -1,0 +1,43 @@
+<profiles>
+<profile version="1.0" name="Padrão" current="true">
+  <PublishFormatProperties enabled="true">
+    <defaultNames>1</defaultNames>
+    <jpeg>0</jpeg>
+    <svg>0</svg>
+    <jpegDefaultName>1</jpegDefaultName>
+    <svgDefaultName>1</svgDefaultName>
+    <jpegFileName>Verticaltvone2026.jpg</jpegFileName>
+    <svgFileName>Verticaltvone2026.svg</svgFileName>
+    <publishFormat id="C6B9CB0C-C6DC-4FBC-9805-93E9EB37A444">1</publishFormat>
+  </PublishFormatProperties>
+  <PublishJpegProperties enabled="true">
+    <Width>720</Width>
+    <Height>100</Height>
+    <Progressive>0</Progressive>
+    <DPI>4718592</DPI>
+    <Size>0</Size>
+    <Quality>80</Quality>
+    <MatchMovieDim>1</MatchMovieDim>
+  </PublishJpegProperties>
+  <PublishProperties id="C6B9CB0C-C6DC-4FBC-9805-93E9EB37A444" name="JavaScript/HTML" enabled="true">
+    <Property name="compactPaths">true</Property>
+    <Property name="createjsNS">createjs</Property>
+    <Property name="default">true</Property>
+    <Property name="exportHTML">true</Property>
+    <Property name="exportImages">true</Property>
+    <Property name="exportLibs">true</Property>
+    <Property name="exportSounds">true</Property>
+    <Property name="filename">Verticaltvone2026.js</Property>
+    <Property name="frameBounds">false</Property>
+    <Property name="hostedLibs">false</Property>
+    <Property name="imagesNS">images</Property>
+    <Property name="imagesPath">images/</Property>
+    <Property name="includeHiddenLayers">true</Property>
+    <Property name="libNS">lib</Property>
+    <Property name="libraryPath">libs/</Property>
+    <Property name="loop">true</Property>
+    <Property name="soundsPath">sounds/</Property>
+    <Property name="version">0.1</Property>
+  </PublishProperties>
+</profile>
+</profiles>

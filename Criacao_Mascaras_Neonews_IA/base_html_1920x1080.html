@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SeuTemplateNeonews</title>
+<!-- 
+  IMPORTANTE: 
+  Abaixo estão as importações do CreateJS padrão do Animate.
+  Mantenha apenas elas e o script gerado (seu_template_animate.js).
+  NÃO insira scripts de animação extras aqui.
+-->
+<script src="libs/easeljs-0.7.0.min.js"></script>
+<script src="libs/tweenjs-0.5.0.min.js"></script>
+<script src="libs/movieclip-0.7.0.min.js"></script>
+<script src="libs/preloadjs-0.4.0.min.js"></script>
+
+<!-- NOME DO SCRIPT ORIGINAL GERADO PELO ANIMATE -->
+<script src="seu_template_animate.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	// IMPORTANTE: Altere "NomeDaSuaMascara" para o nome correto gerado pelo Animate
+	exportRoot = new lib.NomeDaSuaMascara();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(60); 
+	createjs.Ticker.addEventListener("tick", stage);
+
+    // CHAMA A INJEÇÃO DE CÓDIGO (QUE FOI ANEXADA NO FINAL DO ARQUIVO JS)
+    if(typeof iniciarAnimacao === 'function') {
+        iniciarAnimacao(exportRoot, stage);
+    }
+}
+</script>
+</head>
+
+<body onload="init();" style="margin:0px; padding:0px; background-color:transparent; overflow:hidden;">
+	<!-- CANVAS configurado para Full HD -->
+	<canvas id="canvas" width="1920" height="1080" style="display: block; background-color:transparent;"></canvas>
+</body>
+</html>

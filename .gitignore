@@ -1,0 +1,29 @@
+# Adobe Animate build artifacts
+Verticaltvone2026/bin/
+*.cache
+
+# Backups and temporary files
+backups/
+temp_*/
+test_*/
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Node (if any scripts use it)
+node_modules/

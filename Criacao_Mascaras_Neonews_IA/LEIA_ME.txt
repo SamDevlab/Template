@@ -1,0 +1,17 @@
+PACOTE DEFINITIVO PARA CRIAÇÃO DE MÁSCARAS NEONEWS (VIA INTELIGÊNCIA ARTIFICIAL)
+
+Este diretório contém a "fórmula de ouro" que descobrimos para construir e consertar templates do Adobe Animate para o painel Neonews sem quebrar o mapeamento de cores ou as cotações do Dólar.
+
+O QUE TEM AQUI?
+1. PROMPT_PARA_IA.md -> Este é o arquivo mais importante. Sempre que você quiser que o ChatGPT, Claude ou outra IA crie animações novas para você, copie e cole o texto desse arquivo para a IA primeiro. Ele vai "ensinar" a IA sobre todas as restrições que aprendemos (como não alterar a estrutura original e concatenar o código no final).
+2. base_html_1920x1080.html -> Um gabarito em HTML de como o seu template em tela cheia (Full HD) deve parecer. O CSS já tem fundos transparentes preparados para TV corporativa.
+3. script_merge_seguro.js -> Uma ferramenta de terminal Node.js. A IA vai te pedir para usá-la. Ela serve para colar o código de animação gerado pela IA no final do arquivo do Animate sem destruir os caracteres acentuados.
+4. pacote_exemplo_funcionando_v20.zip -> Uma cópia do arquivo que funcionou perfeitamente (com correção do bug da cotação e lógica de 25s de giro). Serve de referência técnica.
+
+FLUXO DE TRABALHO RESUMIDO:
+1. Extraia o ZIP base gerado pelo Adobe Animate.
+2. Peça a IA para gerar a lógica (Dólar, Rotações, Fade In/Out) mandando o "PROMPT_PARA_IA.md" junto.
+3. Junte os arquivos da IA no arquivo original usando o "script_merge_seguro.js" via Node.
+4. Compacte tudo de volta usando "tar.exe -a -c -f meunovoarquivo.zip *" no Prompt de Comando (não use o WinRAR nem ferramentas visuais de terceiros para garantir a compatibilidade com o Neonews).
+
+Bom trabalho e ótimas criações!

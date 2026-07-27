@@ -1,0 +1,351 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" width="720" height="100" frameRate="13" currentTimeline="1" xflVersion="2.4" creatorInfo="Adobe Flash Professional CC" platform="Windows" versionInfo="Saved by Adobe Flash Windows 13.1 build 226" majorVersion="13" minorVersion="1" buildNumber="226" rulerVisible="true" objectsSnapTo="false" viewAngle3D="32.6420633276684" vanishingPoint3DX="640" vanishingPoint3DY="330" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+     <folders>
+          <DOMFolderItem name="Pasta Itens duplicados" itemID="55159d28-000003c3"/>
+     </folders>
+     <media>
+          <DOMBitmapItem name="Bitmap 1" itemID="68a47ef2-000001a0" sourceExternalFilepath="Bitmap 1.png" sourceLastImported="1755610866" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Bitmap 1.png" bitmapDataHRef="M 2 1769535784.dat" frameRight="2400" frameBottom="1200"/>
+          <DOMBitmapItem name="Bitmap 2" itemID="68a4841f-000002dd" sourceExternalFilepath="Bitmap 2.png" sourceLastImported="1755612191" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Bitmap 2.png" bitmapDataHRef="M 1 1769535784.dat" frameRight="14400" frameBottom="7000"/>
+          <DOMBitmapItem name="Bitmap 3" itemID="6a5e6dd0-00000078" sourceExternalFilepath="Bitmap 3.png" sourceLastImported="1784573392" allowSmoothing="true" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Bitmap 3.png" bitmapDataHRef="M 3 1784573392.dat" frameRight="1800" frameBottom="900"/>
+     </media>
+     <symbols>
+          <Include href="datad.xml" loadImmediate="false" itemID="56d08588-000004b7" lastModified="1769538134"/>
+          <Include href="Digital Signage.xml" loadImmediate="false" itemID="68a48410-000002d5" lastModified="1755612191"/>
+          <Include href="HoraInternaMV.xml" loadImmediate="false" itemID="5477057b-0000013d" lastModified="1784572792"/>
+          <Include href="IconesTempo.xml" loadImmediate="false" itemID="509a9dcc-00000472" lastModified="1771590109"/>
+          <Include href="Logo.xml" loadImmediate="false" itemID="68a47ec2-00000197" lastModified="1784572842"/>
+          <Include href="Pasta Itens duplicados/Cópia de Símbolo 3.xml" loadImmediate="false" itemID="56e81b92-00000234" lastModified="1755611613"/>
+          <Include href="Símbolo 1.xml" loadImmediate="false" itemID="68a490fd-00000346" lastModified="1784572871"/>
+          <Include href="Símbolo 2.xml" loadImmediate="false" itemID="68a4b869-0000042a" lastModified="1784572728"/>
+          <Include href="Símbolo 3.xml" loadImmediate="false" itemID="68a5cabf-00000029" lastModified="1771588172"/>
+          <Include href="Símbolo 4.xml" loadImmediate="false" itemID="6a5e6ddd-0000007a" lastModified="1784573405"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Cena 1" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;95&lt;/guideline&gt;&lt;guideline direction="v"&gt;5&lt;/guideline&gt;&lt;guideline direction="v"&gt;715&lt;/guideline&gt;&lt;guideline direction="v"&gt;360&lt;/guideline&gt;&lt;guideline direction="v"&gt;123&lt;/guideline&gt;&lt;guideline direction="v"&gt;592&lt;/guideline&gt;&lt;guideline direction="h"&gt;5&lt;/guideline&gt;&lt;guideline direction="h"&gt;-22&lt;/guideline&gt;&lt;/guidelines&gt;'>
+               <layers>
+                    <DOMLayer name="Linhas" color="#9933CC" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <strokes>
+                                                  <StrokeStyle index="1">
+                                                       <SolidStroke scaleMode="normal" weight="2">
+                                                            <fill>
+                                                                 <SolidColor color="#DE1D21"/>
+                                                            </fill>
+                                                       </SolidStroke>
+                                                  </StrokeStyle>
+                                             </strokes>
+                                             <edges>
+                                                  <Edge strokeStyle="1" edges="!7200 550|7200 1450"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Controle" color="#808080" current="true" isSelected="true" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[function changeImage(mv, src) {
+	if (mv) {
+		if (!src) mv.visible = false;
+		var image = new Image();
+
+		image.onload = function () {
+			mv.visible = true;
+
+			var img = new createjs.Bitmap(image);
+
+			img.scaleX = mv.instance.getTransformedBounds().width / img.image.width;
+			img.scaleY = mv.instance.getTransformedBounds().height / img.image.height;
+
+			img.x = mv.instance.x;
+			img.y = mv.instance.y;
+
+			mv.removeAllChildren();
+			mv.addChild(img);
+		};
+
+		image.src = src;
+	}
+}
+
+Object.defineProperty(cjs.Container.prototype, 'source', {
+	get: function () {
+		return this.imageSource ? this.imageSource : '';
+	},
+	set: function (value) {
+		this.imageSource = value;
+		changeImage(this, value);
+	}
+});
+
+var defineProperties = function () {};
+
+function changeText(mv, initialSize, value, minSize) {
+	if (!mv) return;
+	minSize = minSize ? minSize : 1;
+	if (!mv.originalHeight) {
+		mv.originalHeight = Math.round(mv.parent.nominalBounds.height);
+
+		var res = /(\d+)px/g.exec(mv.font);
+		if (res) {
+			mv.originalFontSize = parseInt(res[1]);
+			mv.fontComplement = mv.font.replace(res[0], '');
+			mv.originalLineHeight = mv.lineHeight;
+		}
+
+		mv.originalFont = mv.font;
+	}
+
+	mv.text = value;
+	mv.font = mv.originalFont;
+	if (mv.originalLineHeight) mv.lineHeight = mv.originalLineHeight;
+	var fontSize = mv.originalFontSize;
+
+	var maxinc = 0;
+	var firstSub = true;
+	while (Math.round(mv.getMeasuredHeight()) > mv.originalHeight) {
+		fontSize = fontSize - 1;
+		if (fontSize <= minSize) {
+			fontSize = minSize;
+			if (value.length = 0) break;
+
+			if (firstSub) {
+				var txtratio = mv.originalHeight / Math.round(mv.getMeasuredHeight());
+				var len = Math.round(value.length * txtratio)
+				if (len > value.length) len = value.length
+				if (len == 0) break;
+				value = value.substring(0, len);
+				firstSub = false;
+			} else {
+				value = value.substring(0, value.length - 1);
+			}
+			mv.text = value + '...';
+
+
+		}
+		var ratio = fontSize / mv.originalFontSize;
+		mv.font = fontSize + "px " + mv.fontComplement;
+		if (mv.originalLineHeight) mv.lineHeight = Math.round(mv.originalLineHeight * ratio);
+	}
+}
+
+var definirTexto = changeText;
+
+Object.defineProperty(cjs.Text.prototype, "autotext", {
+	get: function () {
+		return this.text;
+	},
+	set: function (value) {
+		changeText(this, -1, value, this.minfontsize);
+	}
+});
+
+
+
+this.SetarNoticiaImagem = function (imagem) {
+	this.ImagemNoticia.source = imagem;
+};
+
+
+
+
+this.SetarCotacao = function (moeda, valor, negativo) {
+	setTimeout(function () {
+		if (moeda == 'Dólar') {
+			this.Moeda.Moeda.autotext = moeda;
+			this.Moeda.Valor.autotext = valor;
+		} else if (moeda == 'Euro') {
+			this.Moeda2.Moeda.autotext = moeda;
+			this.Moeda2.Valor.autotext = valor;
+		} 
+	}.bind(this), 100); // bind corrige o "this" 
+};
+
+
+
+/*
+this.SetarTempo = function (situacao, dia, temperatura, maxima, minima, icone) {
+	this.Tempo.Dia.text = dia.substring(0, 3);
+	this.Tempo.Icone.gotoAndStop(icone);
+};
+
+this.SetarTempo2 = function (situacao, dia, temperatura, maxima, minima, icone) {
+	this.Tempo2.Dia.text = dia.substring(0, 3);
+	this.Tempo2.Icone.gotoAndStop(icone);
+};
+*/
+
+
+this.SetarLogo = function (logo) {
+	this.LogoPrincipal.source = logo;
+};
+]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Controle Previsão" color="#9933CC" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <Framescript language="JavaScript">
+                                        <script><![CDATA[var DiaSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+var dataSemana = new Date();
+
+
+this.SetarTempo = function (situacao, dia, temperatura, maxima, minima, icone) {
+	this.Tempo.Dia.text = DiaSemana[dataSemana.getDay()];
+	this.Tempo.Icone.gotoAndStop(icone);
+	this.Tempo.Temperatura.text = temperatura.replace(/c/gi, "");
+
+};
+
+this.SetarTempo2 = function (situacao, dia, temperatura, maxima, minima, icone) {
+	this.Tempo2.Dia.text = DiaSemana[(dataSemana.getDay() == 6 ? 0 : dataSemana.getDay() + 1)];
+	this.Tempo2.Icone.gotoAndStop(icone);
+};]]></script>
+                                   </Framescript>
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Cotação" color="#4F80FF" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Símbolo 2" name="Moeda">
+                                             <matrix>
+                                                  <Matrix tx="375.5" ty="29.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="34.95" y="39.05"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="Símbolo 2" name="Moeda2">
+                                             <matrix>
+                                                  <Matrix tx="475.95" ty="29.55"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="34.95" y="39.05"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Previsão" color="#FF4F4F" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Símbolo 1" name="Tempo">
+                                             <matrix>
+                                                  <Matrix tx="196.45" ty="17.7"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="81.1" y="50"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="Símbolo 3" name="Tempo2">
+                                             <matrix>
+                                                  <Matrix tx="161.85" ty="137.6"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="91.35" y="50.3"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Relógio" color="#FF800A" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="datad" name="DataDia">
+                                             <matrix>
+                                                  <Matrix a="0.999893188476563" d="1.00050354003906" tx="592" ty="30.25"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="146.1" y="153.6"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Logo" color="#009999" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <strokes>
+                                                  <StrokeStyle index="1">
+                                                       <SolidStroke scaleMode="normal" weight="2">
+                                                            <fill>
+                                                                 <SolidColor color="#DE1D21"/>
+                                                            </fill>
+                                                       </SolidStroke>
+                                                  </StrokeStyle>
+                                             </strokes>
+                                             <edges>
+                                                  <Edge strokeStyle="1" edges="!11840 550|11840 1450"/>
+                                             </edges>
+                                        </DOMShape>
+                                        <DOMSymbolInstance libraryItemName="Logo" name="LogoPrincipal">
+                                             <matrix>
+                                                  <Matrix a="0.750015258789063" d="1.5" tx="5" ty="5"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="59.95" y="30.05"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="Símbolo 4" name="LogoBanner">
+                                             <matrix>
+                                                  <Matrix tx="99.9" ty="50"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="45" y="22.5"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Camada 1" color="#4F80FF">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements/>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+                    <DOMLayer name="Background" color="#4F80FF" autoNamed="false" heightLiteral="15">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMShape>
+                                             <fills>
+                                                  <FillStyle index="1">
+                                                       <SolidColor color="#00FF00"/>
+                                                  </FillStyle>
+                                             </fills>
+                                             <edges>
+                                                  <Edge fillStyle1="1" edges="!0 0|14400 0!14400 0|14400 2000!14400 2000|0 2000!0 2000|0 0"/>
+                                             </edges>
+                                        </DOMShape>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <persistentData>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+     </persistentData>
+     <PrinterSettings/>
+     <publishHistory/>
+</DOMDocument>

@@ -1,0 +1,53 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Símbolo 1" itemID="68a490fd-00000346" lastModified="1784572871" lastUniqueIdentifier="1">
+  <persistentData>
+    <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+  </persistentData>
+  <timeline>
+    <DOMTimeline name="Símbolo 1">
+      <layers>
+        <DOMLayer name="Camada 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="Dia" fontRenderingMode="device" top="13.2" left="38.75" width="61" height="28.8" isSelectable="false" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix tx="-36.75" ty="7.25"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Sex</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="-3" size="24" bitmapSize="480" face="Altair-Bold"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="IconesTempo" name="Icone" centerPoint3DX="208.3" centerPoint3DY="42.1">
+                  <matrix>
+                    <Matrix a="0.3070068359375" d="0.3070068359375" tx="120.3" ty="14.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="265" y="86.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMDynamicText name="Temperatura" fontRenderingMode="device" left="44.15" width="46.9" height="36" isSelectable="false" lineType="multiline no wrap">
+                  <matrix>
+                    <Matrix tx="23.5" ty="16.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>99°</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="-3" size="30" bitmapSize="600" face="Novecentosanswide-DemiBold"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

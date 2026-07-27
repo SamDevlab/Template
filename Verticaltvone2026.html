@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Verticaltvone2026</title>
+
+<script src="libs/easeljs-0.7.0.min.js"></script>
+<script src="libs/tweenjs-0.5.0.min.js"></script>
+<script src="libs/movieclip-0.7.0.min.js"></script>
+<script src="libs/preloadjs-0.4.0.min.js"></script>
+<script src="Verticaltvone2026.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	exportRoot = new lib.Verticaltvone2026();
+	iniciarAnimacao(exportRoot, stage);
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	
+	// ATUALIZAÇÃO CHAVE: Forçar a renderização do primeiro frame para o Animate colocar os elementos na tela
+	stage.update(); 
+	// E só depois parar a timeline, para ela não resetar as nossas animações
+	exportRoot.stop();
+	
+	// Animação de Entrada (Fade na tela toda)
+	exportRoot.alpha = 0;
+	createjs.Tween.get(exportRoot).to({alpha: 1}, 800, createjs.Ease.quadOut);
+
+	// Criar o array de mensagens rotativas
+	var messages = ["Tenha um ótimo dia!", "Nosso número xx xxxx-xxxx"];
+	var msgIndex = 0;
+
+	var greeting = new createjs.Text(messages[msgIndex], "bold 34px 'Roboto'", "#FFFFFF");
+	greeting.textAlign = "center";
+	greeting.x = 1200; // Totalmente fora da tela pela direita
+	greeting.y = 30; // Mais centralizado
+	greeting.alpha = 1;
+	exportRoot.addChild(greeting);
+
+	// Coletar todos os elementos para animar (tudo exceto o background e a saudação)
+	var animatableElements = [];
+	for(var i=0; i<exportRoot.getNumChildren(); i++) {
+		var child = exportRoot.getChildAt(i);
+		if (child !== greeting && child !== exportRoot.shape_2) {
+			animatableElements.push(child);
+			
+			// Animação de entrada individual inicial (apenas fade in)
+			child.alpha = 0;
+			createjs.Tween.get(child).wait(400 + (i*100)).to({alpha: 1}, 800, createjs.Ease.quartOut);
+		}
+	}
+
+	// Animação periódica a cada 25 segundos
+	setInterval(function() {
+		// Atualiza a frase a ser exibida antes de animar
+		greeting.text = messages[msgIndex];
+		msgIndex = (msgIndex + 1) % messages.length;
+
+		// 1 e 3. Oculta, espera o tempo da animação (8 seg), e mostra novamente
+		animatableElements.forEach(function(el) {
+			createjs.Tween.get(el, {override: true})
+				.to({alpha: 0}, 800, createjs.Ease.quadInOut)
+				.wait(8000) // Fica oculto por 8 segundos cravados
+				.to({alpha: 1}, 800, createjs.Ease.quadInOut);
+		});
+
+		// 2. Animação da frase: entra, para por 5 seg, e sai
+		greeting.x = 1200; // Começa bem longe na direita
+		createjs.Tween.get(greeting, {override: true})
+			.wait(800) // Espera 0.8 seg para a tela limpar os itens principais
+			.to({x: 360}, 1000, createjs.Ease.quadOut) // Desliza até o centro (1 seg)
+			.wait(5000) // Para por 5 segundos para leitura
+			.to({x: -400}, 1000, createjs.Ease.quadIn); // Desliza para fora (1 seg)
+
+	}, 25000);
+
+	createjs.Ticker.setFPS(60); // 60 FPS
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#121212">
+	<canvas id="canvas" width="720" height="100" style="background-color:#1E1E1E"></canvas>
+</body>
+</html>
